@@ -2,7 +2,10 @@ Biblioteka::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  resources :books
+  resources :books do
+    resources :comments
+  end
+
   resources :authors
   
 

@@ -1,0 +1,14 @@
+=form_for book do |f|
+    =f.error_messages
+    %ul
+        %li
+            =f.label :name, "Tytuł"
+            =f.text_field :name
+        %li 
+            =f.label :description, "Opis"
+            =f.text_area :description
+        %li
+            =label_tag "author_ids", "Autorzy"
+            =select_tag("author_ids[]", options_for_select(Author.find(:all).collect { |a| [a.name, a.id] }, @authors.collect { |a| a.id}), {:multiple=>true, :size=>6})
+    = submit_tag 'Wyślij'
+=link_to "Wróć", books_path

@@ -1,0 +1,9 @@
+%h3 Lista autorów
+%ul
+- @authors.each do |author|
+    %li 
+        =author.name
+        =author.born_date
+        =link_to "Edytuj", edit_author_path(author)
+        =link_to "Usuń",  author, :method => :delete
+=link_to "Dodaj autora", new_author_path
