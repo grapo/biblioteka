@@ -1,10 +1,17 @@
 %h1 Lista książek
-%ul
-- @books.each do |book|
-    %li 
-        =book.name
-        =book.description
-        =link_to "Pokaż", book
-        =link_to "Edytuj", edit_book_path(book)
-        =link_to "Usuń",  book, :method => :delete
+%table.with_border
+    %tr
+        %th Tytuł
+        %th Opis
+        %th Akcje
+
+    - @books.each do |book|
+        %tr
+            %td=book.name
+            %td=book.description
+            %td
+                =link_to "Pokaż", book
+                =link_to "Edytuj", edit_book_path(book)
+                =link_to "Usuń",  book, :method => :delete
+
 =link_to "Dodaj książkę", new_book_path

@@ -5,3 +5,42 @@
  *= require_self
  *= require_tree . 
 */
+
+table {
+    margin: 10px;
+
+}
+table.with_border {
+    border: solid 1px #000;
+    border-collapse: collapse;
+}
+table.with_border td, table.with_border th {
+    border: solid 1px #000;
+    padding: 3px;
+}
+
+textarea {
+    width: 250px;
+    height: 150px;
+}
+
+div.header {
+    border: solid 1px #000;
+    margin: 10px;
+
+}
+div.content {
+    padding: 10px;
+    margin: 10px;
+    border: solid 1px #000;
+
+}
+
+a {
+    color: #00f;
+}
+a:hover {
+    color: #4af;
+
+}
+

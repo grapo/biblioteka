@@ -1,9 +1,12 @@
-%h1 
-    Książka 
-    =@book.name
-%p 
-    Opis:
-    =@book.description
+%h1 Książka 
+%ul 
+    %li
+        Tytuł:
+        =@book.name
+        
+    %li
+        Opis:
+        =@book.description
 Autorzy:
 %ul
     -@book.authors.each do |a|
@@ -17,15 +20,21 @@ Autorzy:
 %ul
     -@book.comments.each do |com|
         %li
-            =com.content
-            =com.author
-            =com.created_at
-            = link_to 'Usuń komentarz', [com.book, com], :confirm => 'Czy jesteś pewny?', :method => :delete
+            %p=com.content
+            %span
+                Autor:
+                =com.author
+                Dodano:
+                =com.created_at.strftime("%d/%m/%Y %H:%M")
+                = link_to 'Usuń komentarz', [com.book, com], :confirm => 'Czy jesteś pewny?', :method => :delete
 
 =form_for([@book, @book.comments.build]) do |f|
-    =f.label :author
-    =f.text_field :author
-    =f.label :content
-    =f.text_area :content
+    %table
+        %tr
+            %td=f.label :author, "Autor"
+            %td=f.text_field :author
+        %tr
+            %td=f.label :content, "Treść"
+            %td=f.text_area :content
     =f.submit "Dodaj komentarz"
      

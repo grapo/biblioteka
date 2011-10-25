@@ -19,11 +19,11 @@ class BooksController < ApplicationController
 
     def create
         @book = Book.new(params[:book])
+        @book.authors = Author.find(params[:author_ids]) if params[:author_ids]
         if @book.save
-            @book.authors = Author.find(params[:author_ids]) if params[:author_ids]
             redirect_to books_path
         else
-            @authors = Author.find(params[:author_ids]) if params[:author_ids]
+            @authors = params[:author_ids] ? Author.find(params[:author_ids]) :  []
             render :action => "new"
         end
     end

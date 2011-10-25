@@ -1,14 +1,14 @@
 =form_for author do |f|
     =f.error_messages
-    %ul
-        %li
-            =f.label :fname, "Imię"
-            =f.text_field :fname
-        %li 
-            =f.label :lname, "Nazwisko"
-            =f.text_field :lname
-        %li
-            =f.label :born_date, "Data urodzenia"
-            =f.text_field :born_date
+    %table
+        %tr
+            %td=f.label :fname, "Imię"
+            %td=f.text_field :fname
+        %tr 
+            %td=f.label :lname, "Nazwisko"
+            %td=f.text_field :lname
+        %tr
+            %td=f.label :born_date, "Data urodzenia"
+            %td=f.text_field :born_date
     = submit_tag 'Wyślij'
 =link_to "Wróć", authors_path

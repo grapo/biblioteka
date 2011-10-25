@@ -1,9 +1,15 @@
-%h3 Lista autorów
-%ul
-- @authors.each do |author|
-    %li 
-        =author.name
-        =author.born_date
-        =link_to "Edytuj", edit_author_path(author)
-        =link_to "Usuń",  author, :method => :delete
+%h1 Lista autorów
+%table.with_border
+    %tr
+        %td Imię i nazwisko
+        %td Data urodzenia
+        %td Akcje
+    - @authors.each do |author|
+        %tr 
+            %td=author.name
+            %td=author.born_date
+            %td
+                =link_to "Edytuj", edit_author_path(author)
+                =link_to "Usuń",  author, :method => :delete
+
 =link_to "Dodaj autora", new_author_path
