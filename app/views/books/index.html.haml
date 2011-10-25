@@ -8,7 +8,7 @@
     - @books.each do |book|
         %tr
             %td=book.name
-            %td=book.description
+            %td=book.description.size > 50 ? book.description[0,50] + "..." : book.description
             %td
                 =link_to "Pokaż", book
                 =link_to "Edytuj", edit_book_path(book)
