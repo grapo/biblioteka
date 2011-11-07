@@ -1,6 +1,8 @@
 class BooksController < ApplicationController
     def index
-        @books = Book.all
+        @q = Book.search(params[:q])
+        @books = @q.result(:distinct => true)
+                    .paginate(:page => params[:page])
     end
 
     def show

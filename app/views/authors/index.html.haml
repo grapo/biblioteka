@@ -1,4 +1,11 @@
 %h1 Lista autorów
+%span
+    Szukaj
+    = search_form_for @q do |f| 
+        = f.label :lname_cont, "Nazwisko:"
+        = f.text_field :lname_cont
+        = f.submit
+= will_paginate @authors
 %table.with_border
     %tr
         %td Imię i nazwisko
@@ -12,4 +19,5 @@
                 =link_to "Edytuj", edit_author_path(author)
                 =link_to "Usuń",  author, :method => :delete
 
+= will_paginate @authors
 =link_to "Dodaj autora", new_author_path

@@ -5,6 +5,8 @@ class Author < ActiveRecord::Base
     validates :lname, :presence => true
     validates :fname, :presence => true
     
+    self.per_page = 10
+
     def name
         fname + ' ' + lname
     end

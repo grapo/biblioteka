@@ -1,4 +1,13 @@
 %h1 Lista książek
+%span
+    Szukaj
+    = search_form_for @q do |f|
+        = f.label :name_cont, "Tytuł:"
+        = f.text_field :name_cont
+        = f.label :descriprion_cont, "Opis:"
+        = f.text_field :description_cont
+        = f.submit
+= will_paginate @books
 %table.with_border
     %tr
         %th Tytuł
@@ -14,4 +23,5 @@
                 =link_to "Edytuj", edit_book_path(book)
                 =link_to "Usuń",  book, :method => :delete
 
+= will_paginate @books
 =link_to "Dodaj książkę", new_book_path

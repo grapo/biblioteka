@@ -8,6 +8,9 @@ gem 'rails', '3.1.0'
 gem 'pg'
 gem 'dynamic_form'
 gem 'haml'
+gem 'ransack'
+gem 'will_paginate'
+gem 'faker'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

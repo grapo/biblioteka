@@ -1,6 +1,8 @@
 class AuthorsController < ApplicationController
     def index
-        @authors = Author.all
+        @q = Author.search(params[:q])
+        @authors = @q.result(:distinct => true)
+                     .paginate(:page => params[:page])
     end
 
     def new
