@@ -20,6 +20,7 @@
                     = link_to 'Wyloguj', destroy_user_session_path, :method => :delete
                 - else
                     = link_to "Zaloguj", new_user_session_path
+                    = link_to "Zaloguj przez Facebook", user_omniauth_authorize_path(:facebook)
         %div.info
             %p.notice 
                 = notice 
