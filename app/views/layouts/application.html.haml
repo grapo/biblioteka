@@ -1,0 +1,30 @@
+!!! XML
+!!!
+%html
+    %head
+        %title Biblioteka
+        = stylesheet_link_tag "application"
+        = javascript_include_tag "application"
+        = csrf_meta_tags
+
+    %body
+        %div.header
+            %div.menu
+                =link_to "Książki", books_path 
+                =link_to "Autorzy", authors_path 
+            %div.auth
+                - if user_signed_in?
+                    %span 
+                        Zalogowany jako: 
+                        = current_user.email
+                    = link_to 'Wyloguj', destroy_user_session_path, :method => :delete
+                - else
+                    = link_to "Zaloguj", new_user_session_path
+        %div.info
+            %p.notice 
+                = notice 
+            %p.alert 
+                = alert 
+        %div.content
+            = yield
+
