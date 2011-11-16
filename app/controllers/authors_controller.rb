@@ -1,4 +1,6 @@
 class AuthorsController < ApplicationController
+    before_filter :authenticate_user!
+    
     def index
         @q = Author.search(params[:q])
         @authors = @q.result(:distinct => true)

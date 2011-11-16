@@ -27,8 +27,23 @@ textarea {
 div.header {
     border: solid 1px #000;
     margin: 10px;
-
+    height: 30px;
 }
+div.info {
+    border: solid 1px #000;
+    margin: 10px;
+}
+div.menu {
+    width: 300px;
+    float: left;
+}
+div.auth {
+    width: 300px;
+    float: right;
+    text-align: right;
+    padding-right: 10px;
+}
+
 div.content {
     padding: 10px;
     margin: 10px;
